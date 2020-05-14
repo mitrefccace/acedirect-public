@@ -4,9 +4,9 @@
 
 Accessible Communications for Everyone (ACE) Direct is a Direct Video Calling (DVC) platform that enables direct calling from deaf and hard-of-hearing individuals to an American Sign Language (ASL)-trained agent within an organization's call center. The agent handles the call using a video-capable phone with real-time video connection. To demonstrate the capabilities of DVC, the FCC and CAMH have further advanced the original auto-routing POC into a call center platform for two to ten customer service representatives.
 
-## Release v3.2.3
+## Release v4.0
 
-The latest release of ACE Direct is **Release v3.2.3**. See the [RELEASENOTES.md](RELEASENOTES.md) file for the changes included in this release.
+The latest release of ACE Direct is **Release v4.0**. See the [RELEASENOTES.md](RELEASENOTES.md) file for the changes included in this release.
 
 ## Clean Installation
 
@@ -20,10 +20,18 @@ If you only want to download the latest software, start here. The latest release
 user@yourmachine:~$  git clone git@github.com:mitrefccace/acedirect-public.git  # get top repo
 user@yourmachine:~$  cd acedirect-public
 user@yourmachine:~$  git submodule init  # initialize local config file
-user@yourmachine:~$  git submodule update # get individual repos
+user@yourmachine:~$  git submodule update --init --remote --recursive  # get individual repos
 ```
 
-Next, check out the **v3.2** tag (or the most current tag) of each of the submodule repos. Some repos may not have been updated for the most current release. This will ensure that all submodules are in sync.
+Next, go to each individual repo and get the correct version. For example, for the `acedirect` repo::
+
+```
+$  cd acedirect
+$  git checkout v4.0
+$  git pull origin v4.0
+```
+
+Repeat for all other individual repos. _Note that some repos only have a **master** branch, since they are compatible with all versions of ACE Direct_.
 
 ## Documentation
 
