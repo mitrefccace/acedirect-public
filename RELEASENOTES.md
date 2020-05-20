@@ -13,6 +13,7 @@ Major release
 * New videomail system, better video quality, increased stability and scalability
 * New SIP proxy server for improved security
 * New iTRS All Call Query for verifying VRS numbers
+* New Outbound calling dialog
 
 ## Release Tag: v3.2.3
 
