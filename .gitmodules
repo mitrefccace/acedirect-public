@@ -55,3 +55,6 @@
 [submodule "kurento"]
 	path = kurento
 	url = https://github.com/mitrefccace/kurento.git
+[submodule "kurento-asterisk-servlet"]
+	path = kurento-asterisk-servlet
+	url = git@github.com:mitrefccace/kurento-asterisk-servlet.git
