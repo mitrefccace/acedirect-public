@@ -32,7 +32,7 @@ This section describes the important prerequisites to complete _before_ proceedi
 
 ## Installation and configuration
 
-After completing the prerequisites above, continue to ACE Direct installation and configuration. The `autoinstall` repo automates much of the installation and configuration process. 
+After completing the prerequisites above, continue to ACE Direct installation and configuration. The `autoinstall` repo automates much of the installation and configuration process.
 
 ### Sample Installation
 
@@ -74,9 +74,9 @@ Do you want to go through the configuration process? (y/n):y
 Enter the full path to a configuration template file, or press enter to use the
 default template:/home/acedirect/dat/config.json_TEMPLATE
 Do you want the configuration file config.json to be base64 encoded? (y/n):n
-prompt: common,cleartext:  (true) 
-prompt: common,version:  (3.2) 
-prompt: common,year:  (2019) 
+prompt: common,cleartext:  (true)
+prompt: common,version:  (3.2)
+prompt: common,year:  (2019)
 ...
 Writing process.json and starting servers of the installed components...
 ...
@@ -135,7 +135,12 @@ $
 ```
 
 * Install [Node.js](https://nodejs.org/en/download/package-manager/), [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), wget, [bower](https://bower.io/), [pm2](https://www.npmjs.com/package/pm2), and [apidoc](https://www.npmjs.com/package/apidoc).
-* Install and configure the Node.js application servers. Run the automated installer script. Note that the automated installer script also downloads and installs third-party software mentioned above:
+
+  * For **ACE Direct v4.0**, install Node.js v10.16.0 and npm 6.9.0.
+
+* To manually install the Node.js application servers, go into each app's repo and type: `npm run build` .
+* To manually configure the Node.js application servers, copy `~/dat/config.json_TEMPLATE` to `~/dat/config.json`. Then modify `~/dat/config.json` for your configuration.
+* Another option to install and configure the Node.js application servers is the automated installer script. Note that the automated installer script also downloads and installs third-party software mentioned above:
 
 ```bash
 cd /home/acedirect  # your installation folder
@@ -206,7 +211,7 @@ After rebooting servers, ACE Direct requires starting services in a specific ord
   * Run `pm2 status` to check the status of all Node servers:
 
     * Are all `status` fields `online` (OK)? If not, errors are present.
-    * Are any `restart` counts periodically increasing? If so, errors are present. 
+    * Are any `restart` counts periodically increasing? If so, errors are present.
 
   * Stop all Node services: `pm2 stop all`
   * Start all Node services: `pm2 start all`
@@ -226,6 +231,6 @@ After rebooting servers, ACE Direct requires starting services in a specific ord
 * NGINX cannot proxy to the NODE server - when using FQDNs for ACEDirect in `/etc/nginx/nginx.conf`, the FQDNs may force traffic through a proxy. To resolve this, map the FQDN to the private IP instead using a private host zone. *Or*, simply use private IP addresses in place of FQDN in `/etc/nginx/nginx.conf` for the ACEDirect, ManagementPortal, and ace (OpenAM) paths.
 * Install MongoDB on RHEL - if the `installer.py` script fails to install MongoDB on RHEL, try `sudo yum install -y mongodb-org` .
 * No CDR records in the Management Portal - Make sure Asterisk is configured to have the MySQL database credentials, CDR database name, and CDR table name. Also make sure that the ODBC C library is installed on the Asterisk server; this library is normally installed by the automated installation script.
-* Consumer portal cannot reach Asterisk; ERR_CONNECTION_REFUSED - make sure Asterisk is configured to use valid certificates. 
+* Consumer portal cannot reach Asterisk; ERR_CONNECTION_REFUSED - make sure Asterisk is configured to use valid certificates.
 * Cannot connect to portals - possibly remap the elastic IPs or try running `nslookup` on the NGINX FQDN and verify its FQDN and public IP.
 * NGINX errors when trying to connect to portals, but all servers are up and running - make sure all servers have the correct time, synced with each other.
