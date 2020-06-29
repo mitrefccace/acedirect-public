@@ -136,7 +136,7 @@ $
 
 * Install [Node.js](https://nodejs.org/en/download/package-manager/), [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), wget, [bower](https://bower.io/), [pm2](https://www.npmjs.com/package/pm2), and [apidoc](https://www.npmjs.com/package/apidoc).
 
-  * For **ACE Direct v4.0**, install Node.js v10.16.0 and npm 6.9.0.
+  * For **ACE Direct v4.0**, install Node.js v10.16.0, npm 6.9.0, and pm2 4.4.0.
 
 * To manually install the Node.js application servers, go into each app's repo and type: `npm run build` .
 * To manually configure the Node.js application servers, copy `~/dat/config.json_TEMPLATE` to `~/dat/config.json`. Then modify `~/dat/config.json` for your configuration.
